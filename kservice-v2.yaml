@@ -1,0 +1,16 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-python
+  # namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/emayssatware/helloworld-python
+        # imagePullPolicy: Never
+        # imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
+        env:
+        - name: TARGET
+          value: "Python Sample v2"
